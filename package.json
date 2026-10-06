@@ -4,6 +4,7 @@
   "description": "Boutique en ligne Kwiyiah Style — le dossier site/ est la racine déployable",
   "main": "site/support.js",
   "scripts": {
+    "build": "echo 'Static build ready'",
     "start": "python3 -m http.server 8081 -d site",
     "dev": "python3 -m http.server 8081 -d site"
   },
