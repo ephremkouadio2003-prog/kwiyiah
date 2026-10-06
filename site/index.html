@@ -62,15 +62,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(ellipse at 50% 38%, rgba(108, 28, 39, 0.22) 0%, #120f0c 55%, #0a0807 100%);
-    color: #f5f2ec;
+    background: #ffffff;
+    color: #14110d;
     font-family: 'Jost', system-ui, -apple-system, sans-serif;
     padding: max(20px, env(safe-area-inset-top, 20px)) 24px max(20px, env(safe-area-inset-bottom, 20px));
     box-sizing: border-box;
     overflow: hidden;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
   }
   .kw-page-loader.kw-loader-hidden {
     opacity: 0;
@@ -107,7 +107,7 @@
     margin: 0;
     flex: 0 1 auto;
     position: relative;
-    animation: kwLoaderFadeUp 0.8s ease-out;
+    animation: kwLoaderFadeUp 0.6s ease-out;
   }
   .kw-loader-model {
     height: clamp(190px, 44vh, 460px);
@@ -115,7 +115,7 @@
     max-width: 90vw;
     display: block;
     object-fit: contain;
-    filter: drop-shadow(0 20px 28px rgba(0,0,0,0.75)) drop-shadow(0 0 35px rgba(176,141,79,0.20));
+    filter: drop-shadow(0 14px 18px rgba(60, 40, 20, 0.12));
   }
   @media (max-width: 560px) {
     .kw-loader-model {
@@ -133,7 +133,7 @@
     position: relative;
     width: clamp(62px, 8.5vw, 84px);
     aspect-ratio: 1;
-    filter: drop-shadow(0 6px 18px rgba(176,141,79,0.32));
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
   }
   .kw-loader-logo svg {
     position: absolute;
@@ -163,7 +163,7 @@
     font-weight: 500;
     letter-spacing: 0.20em;
     text-transform: uppercase;
-    color: #f5f2ec;
+    color: #14110d;
     margin: 0;
     line-height: 1.1;
   }
@@ -176,14 +176,14 @@
     font-size: 9.5px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: rgba(176,141,79,0.88);
+    color: #9a6f2e;
     margin: 0;
     font-weight: 500;
   }
   .kw-loader-barre {
     width: clamp(130px, 16vw, 190px);
     height: 2px;
-    background: rgba(176,141,79,0.22);
+    background: #e8e3d8;
     overflow: hidden;
     border-radius: 99px;
     margin: 3px 0;
@@ -193,9 +193,8 @@
     display: block;
     height: 100%;
     width: 45%;
-    background: linear-gradient(90deg, transparent, #b08d4f 40%, #f3d79b 70%, transparent);
+    background: linear-gradient(90deg, transparent, #b08d4f 50%, #14110d 80%, transparent);
     animation: kwGlisse 1.4s ease-in-out infinite;
-    box-shadow: 0 0 10px rgba(176,141,79,0.6);
   }
   .kw-loader-etat {
     font-family: 'Jost', sans-serif;
@@ -203,14 +202,14 @@
     font-size: 11.5px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(245,242,236,0.65);
+    color: #7d7569;
     margin: 0;
     min-height: 18px;
   }
   @keyframes kwTourne { to { transform: rotate(360deg); } }
   @keyframes kwTrace { 0% { stroke-dashoffset: 1; } 45%, 70% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
   @keyframes kwGlisse { 0% { transform: translateX(-100%); } 100% { transform: translateX(260%); } }
-  @keyframes kwLoaderFadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes kwLoaderFadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   @media (prefers-reduced-motion: reduce) {
     .kw-loader-anneau, .kw-loader-barre span { animation: none !important; }
     .kw-loader-trait { animation: none !important; stroke-dashoffset: 0 !important; }
