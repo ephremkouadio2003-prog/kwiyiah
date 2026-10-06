@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Le routage des vues se fait par fragment (#/collection, #/produit/…) : les
+  moteurs de recherche n'indexent pas les fragments, ce sitemap ne peut donc
+  déclarer que l'URL racine. Pour indexer chaque vue séparément, il faudra
+  passer à de vraies URL (routage côté serveur ou pré-rendu par page).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://kwiyiahstyle.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
