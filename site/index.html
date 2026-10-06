@@ -505,23 +505,18 @@ a{color:inherit;text-decoration:none}
 <div>
   <!-- HERO VITRINE (style Gravity Free) -->
   <section style="padding:clamp(12px,2vw,24px);background:#100e0c">
-    <div class="kw-hero-inner" style="position:relative;border-radius:30px;overflow:hidden;background:#100e0c;min-height:min(840px,93vh);box-shadow:0 40px 120px rgba(0,0,0,.55)">
-      <!-- FOND ÉDITORIAL HAUTE COUTURE AVEC VOILE DE CONTRASTE -->
-      <div class="kw-hero-bg-media" style="position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none">
-        <img fetchpriority="high" decoding="async" src="assets/eva-sidibe.webp" srcset="assets/eva-sidibe-540.webp 540w, assets/eva-sidibe.webp 1080w" sizes="100vw" alt="Kwiyiah Style Haute Couture" style="width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:brightness(0.72) saturate(1.18)">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(16,14,12,0.82) 0%, rgba(16,14,12,0.3) 38%, rgba(16,14,12,0.58) 68%, rgba(16,14,12,0.94) 100%)"></div>
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(16,14,12,0.65) 100%)"></div>
-      </div>
-
+    <div class="kw-hero-inner" style="position:relative;border-radius:30px;overflow:hidden;background:radial-gradient(135% 120% at 50% -10%,#f8f6f1 0%,#ece9e2 58%,#e2ddd4 100%);min-height:min(840px,93vh);box-shadow:0 40px 120px rgba(0,0,0,.55)">
       <!-- BAR -->
       <div class="kw-header-bar" style="position:absolute;top:0;left:0;right:0;z-index:6;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(18px,3.2vw,48px)">
+        <!-- Logo et icônes forment une seule ligne ; sur mobile, c'est cette
+             ligne qui reste visible, la navigation passant en dessous. -->
         <div class="kw-header-top">
-        <button type="button" onClick="{{ goAccueil }}" aria-label="Kwiyiah Style — retour à l'accueil" style="background:transparent;border:0;padding:0;font:inherit;text-align:inherit;display:flex;align-items:center;gap:11px;cursor:pointer;color:#f6f3ed !important">
-          <img src="assets/markw.png" alt="" width="40" height="40" style="width:40px;height:40px">
-          <span style="font-size:19px;letter-spacing:.04em;color:#f6f3ed !important;font-weight:500">Kwiyiah <span style="color:#c59f5b">Style</span></span>
+        <button type="button" onClick="{{ goAccueil }}" aria-label="Kwiyiah Style — retour à l'accueil" style="background:transparent;border:0;padding:0;font:inherit;text-align:inherit;display:flex;align-items:center;gap:11px;cursor:pointer;color:#181410 !important">
+          <img src="assets/markd.png" alt="" width="40" height="40" style="width:40px;height:40px">
+          <span style="font-size:19px;letter-spacing:.04em;color:#181410 !important">Kwiyiah <span style="color:#7a5416">Style</span></span>
         </button>
         <div class="kw-header-actions" style="display:flex;align-items:center;gap:10px">
-          <button onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.18);color:#f6f3ed;display:flex;align-items:center;justify-content:center;transition:var(--theme-transition);box-shadow:0 4px 16px rgba(0,0,0,0.25)">
+          <button onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="width:42px;height:42px;border-radius:50%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06);color:#181410;display:flex;align-items:center;justify-content:center;transition:var(--theme-transition)">
             <sc-if value="{{ isDarkTheme }}" hint-placeholder-val="{{ true }}">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             </sc-if>
@@ -529,13 +524,13 @@ a{color:inherit;text-decoration:none}
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </sc-if>
           </button>
-          <button onClick="{{ goFavorites }}" aria-label="{{ favLabelNav }}" title="Favoris" style="position:relative;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.18);box-shadow:0 4px 16px rgba(0,0,0,.25);color:#f6f3ed;display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.4 12 21 12 21z"/></svg><sc-if value="{{ hasFav }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 4px;background:#b08d4f;color:#14110d;font-weight:700;border-radius:30px;font-size:10px;display:flex;align-items:center;justify-content:center">{{ favCount }}</span></sc-if></button>
-          <button onClick="{{ openCart }}" aria-label="{{ cartLabel }}" title="Panier" style="position:relative;width:42px;height:42px;border-radius:50%;background:#b08d4f;color:#14110d;box-shadow:0 4px 18px rgba(176,141,79,.4);display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span style="position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 4px;background:#6c1c27;color:#fff;font-weight:700;border-radius:30px;font-size:10px;display:flex;align-items:center;justify-content:center">{{ cartCount }}</span></button>
+          <button onClick="{{ goFavorites }}" aria-label="{{ favLabelNav }}" title="Favoris" style="position:relative;width:42px;height:42px;border-radius:50%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06);color:#181410;display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.4 12 21 12 21z"/></svg><sc-if value="{{ hasFav }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 4px;background:#9a6f2e;color:#fff;border-radius:30px;font-size:10px;display:flex;align-items:center;justify-content:center">{{ favCount }}</span></sc-if></button>
+          <button onClick="{{ openCart }}" aria-label="{{ cartLabel }}" title="Panier" style="position:relative;width:42px;height:42px;border-radius:50%;background:#181410;color:#f6f3ed;display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span style="position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 4px;background:#6c1c27;color:#fff;border-radius:30px;font-size:10px;display:flex;align-items:center;justify-content:center">{{ cartCount }}</span></button>
         </div>
         </div>
         <nav class="kw-header-nav" aria-label="Navigation principale">
-          <sc-for list="{{ heroNav }}" as="n" hint-placeholder-count="4">
-            <button onClick="{{ n.onClick }}" style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:30px;font-size:13px;letter-spacing:.01em;background:{{ n.bg }};color:{{ n.color }};border:1px solid rgba(255,255,255,0.12)">{{ n.label }}<sc-if value="{{ n.hasBadge }}" hint-placeholder-val="{{ false }}"><span style="padding:2px 8px;background:{{ n.badgeBg }};border-radius:30px;font-size:11px;color:{{ n.badgeColor }}">{{ n.badge }}</span></sc-if></button>
+          <sc-for list="{{ nav }}" as="n" hint-placeholder-count="4">
+            <button onClick="{{ n.onClick }}" style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:30px;font-size:13px;letter-spacing:.01em;background:{{ n.bg }};color:{{ n.color }}">{{ n.label }}<sc-if value="{{ n.hasBadge }}" hint-placeholder-val="{{ false }}"><span style="padding:2px 8px;background:{{ n.badgeBg }};border-radius:30px;font-size:11px;color:{{ n.badgeColor }}">{{ n.badge }}</span></sc-if></button>
           </sc-for>
         </nav>
 
@@ -543,27 +538,31 @@ a{color:inherit;text-decoration:none}
 
       <h1 class="kw-sr-only">Kwiyiah Style — haute couture sur-mesure, collection Abidjan-Paris</h1>
       <!-- TITRE EN FOND -->
-      <div class="kw-hero-title" aria-hidden="true" style="position:absolute;z-index:2;top:40%;left:0;right:0;transform:translateY(-50%);margin:0;text-align:center;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(58px,12.5vw,208px);line-height:.84;letter-spacing:-.03em;word-spacing:.22em;color:rgba(246,243,237,0.16);text-shadow:0 4px 30px rgba(0,0,0,0.5);white-space:nowrap;pointer-events:none;-webkit-text-stroke:1px rgba(176,141,79,0.32)">Abidjan Paris</div>
+      <!-- Espace ordinaire (et non insécable) + word-spacing : le mot « Paris »
+           peut passer à la ligne sur mobile, où le titre débordait de 50 px. -->
+      <div class="kw-hero-title" aria-hidden="true" style="position:absolute;z-index:2;top:40%;left:0;right:0;transform:translateY(-50%);margin:0;text-align:center;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(58px,12.5vw,208px);line-height:.84;letter-spacing:-.03em;word-spacing:.22em;color:rgba(24,20,16,0.08);white-space:nowrap;pointer-events:none">Abidjan Paris</div>
+
+      <!-- Emplacement du visuel central du héros. L'ancienne vidéo détourée
+           (assets/vetement.mp4 + canvas) a été retirée ; déposer ici le nouveau
+           média (img ou video) dans ce conteneur. -->
+      <div class="kw-hero-media" style="position:absolute;z-index:3;left:50%;bottom:0;transform:translateX(-50%);width:clamp(330px,47vw,660px);height:min(820px,88vh);pointer-events:none"></div>
 
       <!-- BADGE -->
-      <div class="kw-hero-badge" style="position:absolute;z-index:5;top:29%;right:clamp(30px,11vw,180px);transform:rotate(-3deg);display:inline-flex;align-items:center;gap:8px;padding:11px 20px;background:rgba(16,14,12,0.85);backdrop-filter:blur(14px);color:#f6f3ed;border:1px solid rgba(176,141,79,0.5);border-radius:40px;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(12px,1.35vw,18px);letter-spacing:.04em;box-shadow:0 12px 30px rgba(0,0,0,0.5)">COLLECTION <span style="color:#b08d4f">✦</span> 2026</div>
+      <div class="kw-hero-badge" style="position:absolute;z-index:5;top:29%;right:clamp(30px,11vw,180px);transform:rotate(-3deg);display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:#181410;color:#f6f3ed;border-radius:40px;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(12px,1.35vw,19px);letter-spacing:.03em">COLLECTION <span style="color:#b08d4f">✦</span> 2026</div>
 
       <!-- COPIE BAS GAUCHE -->
-      <div class="kw-hero-copy" style="position:absolute;z-index:5;left:clamp(18px,3.2vw,48px);bottom:clamp(26px,3.6vw,50px);max-width:320px">
-        <div style="display:inline-flex;align-items:center;padding:8px 16px;border:1.5px solid #b08d4f !important;background:rgba(16,14,12,0.65);backdrop-filter:blur(12px);border-radius:40px;font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;color:#d4af37 !important;margin-bottom:16px;box-shadow:0 4px 16px rgba(0,0,0,0.3)">FAIT MAIN · SUR-MESURE</div>
-        <p style="font-size:14.5px;line-height:1.7;color:rgba(246,243,237,.95);font-weight:300;margin-bottom:20px;text-shadow:0 2px 8px rgba(0,0,0,0.7)">La nouvelle collection couture Abidjan–Paris. Pièces faites main, en édition limitée et entièrement ajustables à vos mesures.</p>
-        <button onClick="{{ goBoutique }}" style="display:inline-flex;align-items:center;gap:12px;padding:14px 16px 14px 26px;background:#b08d4f;color:#14110d;font-weight:600;border-radius:40px;font-size:13px;letter-spacing:.04em;box-shadow:0 10px 28px rgba(176,141,79,0.35);border:0;cursor:pointer" style-hover="background:#c9a96a;transform:translateY(-2px)">Découvrir <span style="width:28px;height:28px;border-radius:50%;background:#14110d;color:#f6f3ed;display:flex;align-items:center;justify-content:center;font-size:14px">→</span></button>
+      <div class="kw-hero-copy" style="position:absolute;z-index:5;left:clamp(18px,3.2vw,48px);bottom:clamp(26px,3.6vw,50px);max-width:300px">
+        <div style="display:inline-flex;align-items:center;padding:8px 16px;border:1.5px solid #181410 !important;border-radius:40px;font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;color:#181410 !important;margin-bottom:16px">FAIT MAIN · SUR-MESURE</div>
+        <p style="font-size:14px;line-height:1.65;color:rgba(24,20,16,.7);font-weight:300;margin-bottom:18px">La nouvelle collection couture Abidjan–Paris. Pièces faites main, en édition limitée et entièrement ajustables à vos mesures.</p>
+        <button onClick="{{ goBoutique }}" style="display:inline-flex;align-items:center;gap:12px;padding:13px 15px 13px 24px;background:#181410;color:#f6f3ed;border-radius:40px;font-size:13px;letter-spacing:.03em" style-hover="background:#9a6f2e">Découvrir <span style="width:28px;height:28px;border-radius:50%;background:#f6f3ed;color:#181410;display:flex;align-items:center;justify-content:center;font-size:14px">→</span></button>
       </div>
 
       <!-- CARTE PRODUIT BAS DROITE -->
-      <div onClick="{{ goSidibe }}" onKeyDown="{{ goSidibeKey }}" role="button" tabindex="0" aria-label="Voir la robe SIDIBÉ" class="kw-hero-card" style="position:absolute;z-index:5;right:clamp(18px,3.2vw,48px);bottom:clamp(26px,3.6vw,50px);display:flex;flex-direction:column;gap:12px;width:clamp(190px,17vw,230px);padding:14px;background:rgba(20,17,14,0.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.14);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.5);text-align:left;color:#f6f3ed;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.65);border-color:rgba(176,141,79,0.5)">
-        <div style="overflow:hidden;border-radius:14px;aspect-ratio:4/3;background:#181410"><img fetchpriority="high" decoding="async" src="assets/sidibe-1.webp" srcset="assets/sidibe-1-540.webp 540w, assets/sidibe-1.webp 1080w" sizes="(max-width:768px) 84px, 222px" alt="Robe SIDIBÉ" style="width:100%;height:100%;object-fit:cover"></div>
+      <div onClick="{{ goSidibe }}" onKeyDown="{{ goSidibeKey }}" role="button" tabindex="0" aria-label="Voir la robe SIDIBÉ" class="kw-hero-card" style="position:absolute;z-index:5;right:clamp(18px,3.2vw,48px);bottom:clamp(26px,3.6vw,50px);display:flex;flex-direction:column;gap:11px;width:clamp(180px,16vw,222px);padding:13px;background:#fff;border-radius:18px;box-shadow:0 16px 44px rgba(0,0,0,.14);text-align:left;color:var(--text-primary);cursor:pointer" style-hover="box-shadow:0 22px 60px rgba(0,0,0,.2)">
+        <div style="overflow:hidden;border-radius:12px;aspect-ratio:4/3;background:#ece9e2"><img fetchpriority="high" decoding="async" src="assets/sidibe-1.webp" srcset="assets/sidibe-1-540.webp 540w, assets/sidibe-1.webp 1080w" sizes="(max-width:768px) 84px, 222px" alt="Robe SIDIBÉ" style="width:100%;height:100%;object-fit:cover"></div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
-          <div style="min-width:0">
-            <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#b08d4f;margin-bottom:2px;white-space:nowrap;font-weight:600">Pièce signature</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.05;white-space:nowrap;color:#f6f3ed">Robe SIDIBÉ</div>
-          </div>
-          <span style="flex:none;width:34px;height:34px;border-radius:50%;background:#b08d4f;color:#14110d;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">↗</span>
+          <div style="min-width:0"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;white-space:nowrap">Pièce signature</div><div style="font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.05;white-space:nowrap">Robe SIDIBÉ</div></div>
+          <span style="flex:none;width:34px;height:34px;border-radius:50%;background:#181410;color:#f6f3ed;display:flex;align-items:center;justify-content:center;font-size:13px">↗</span>
         </div>
       </div>
 
@@ -1637,18 +1636,15 @@ class Component extends DCLogic {
     ];
     const activeKey=(st.screen==='produit'||st.screen==='checkout')?'boutique':st.screen;
     const nav=navDef.map(n=>{ const a=n.key===activeKey; return {label:n.label,onClick:n.onClick,hasBadge:!!n.badge,badge:n.badge||'',
-      bg:a?'var(--text-primary)':'transparent', color:a?'var(--bg-primary)':'var(--text-secondary)',
-      badgeBg:a?'rgba(255,255,255,.2)':'var(--bg-secondary)', badgeColor:a?'var(--bg-primary)':'var(--gold)'}; });
-    const heroNav=navDef.map(n=>{ const a=n.key===activeKey; return {label:n.label,onClick:n.onClick,hasBadge:!!n.badge,badge:n.badge||'',
-      bg:a?'#b08d4f':'rgba(255,255,255,0.14)', color:a?'#14110d':'#f6f3ed',
-      badgeBg:a?'rgba(0,0,0,.22)':'rgba(255,255,255,0.22)', badgeColor:a?'#14110d':'#f6f3ed'}; });
+      bg:a?'#181410':'transparent', color:a?'#f6f3ed':'rgba(24,20,16,.62)',
+      badgeBg:a?'rgba(255,255,255,.18)':'#f0ede6', badgeColor:a?'#f6f3ed':'#9a6f2e'}; });
 
     return {
       isAccueil: st.screen==='accueil', isBoutique: st.screen==='boutique', isProduit: st.screen==='produit' && !!p, isMaison: st.screen==='maison',
       isContact: st.screen==='contact', isCheckout: st.screen==='checkout',
       notAccueil: st.screen!=='accueil',
       showFullFooter: st.screen==='accueil'||st.screen==='maison',
-      nav, heroNav, hasFav: st.fav.length>0,
+      nav, hasFav: st.fav.length>0,
       contactSent: st.contactSent, contactOpen: !st.contactSent, checkoutDone: st.checkoutDone, checkoutActive: !st.checkoutDone, orderRef: st.orderRef||'',
       cForm:this._refCForm, submitContact:(e)=>this.submitContact(e),
       waFallback: st.waFallback||'', waBlocked: !!st.waFallback,
