@@ -53,6 +53,170 @@
 </script>
 
 <script src="./support.js" defer></script>
+<style id="kw-loader-styles">
+  .kw-page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at 50% 38%, rgba(108, 28, 39, 0.22) 0%, #120f0c 55%, #0a0807 100%);
+    color: #f5f2ec;
+    font-family: 'Jost', system-ui, -apple-system, sans-serif;
+    padding: max(20px, env(safe-area-inset-top, 20px)) 24px max(20px, env(safe-area-inset-bottom, 20px));
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+  }
+  .kw-page-loader.kw-loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .kw-page-loader.kw-loader-gone {
+    display: none !important;
+  }
+  .kw-page-loader.kw-loader-transitioning {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .kw-loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 2.8vh, 32px);
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+  }
+  .kw-loader-rang {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+  }
+  .kw-loader-figure {
+    margin: 0;
+    flex: 0 1 auto;
+    position: relative;
+    animation: kwLoaderFadeUp 0.8s ease-out;
+  }
+  .kw-loader-model {
+    height: clamp(190px, 44vh, 460px);
+    width: auto;
+    max-width: 90vw;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 28px rgba(0,0,0,0.75)) drop-shadow(0 0 35px rgba(176,141,79,0.20));
+  }
+  @media (max-width: 560px) {
+    .kw-loader-model {
+      height: min(34vh, 240px);
+    }
+  }
+  .kw-loader-chargeur {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+  .kw-loader-logo {
+    position: relative;
+    width: clamp(62px, 8.5vw, 84px);
+    aspect-ratio: 1;
+    filter: drop-shadow(0 6px 18px rgba(176,141,79,0.32));
+  }
+  .kw-loader-logo svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .kw-loader-anneau {
+    animation: kwTourne 1.7s linear infinite;
+  }
+  .kw-loader-trait {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: kwTrace 2.4s ease-in-out infinite;
+  }
+  .kw-loader-trait:nth-child(2) { animation-delay: 0.15s; }
+  .kw-loader-trait:nth-child(3) { animation-delay: 0.30s; }
+  .kw-loader-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .kw-loader-marque {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(21px, 2.6vw, 29px);
+    font-weight: 500;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: #f5f2ec;
+    margin: 0;
+    line-height: 1.1;
+  }
+  .kw-loader-marque span {
+    color: #b08d4f;
+    font-style: italic;
+  }
+  .kw-loader-sub {
+    font-family: 'Archivo', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(176,141,79,0.88);
+    margin: 0;
+    font-weight: 500;
+  }
+  .kw-loader-barre {
+    width: clamp(130px, 16vw, 190px);
+    height: 2px;
+    background: rgba(176,141,79,0.22);
+    overflow: hidden;
+    border-radius: 99px;
+    margin: 3px 0;
+    position: relative;
+  }
+  .kw-loader-barre span {
+    display: block;
+    height: 100%;
+    width: 45%;
+    background: linear-gradient(90deg, transparent, #b08d4f 40%, #f3d79b 70%, transparent);
+    animation: kwGlisse 1.4s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(176,141,79,0.6);
+  }
+  .kw-loader-etat {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245,242,236,0.65);
+    margin: 0;
+    min-height: 18px;
+  }
+  @keyframes kwTourne { to { transform: rotate(360deg); } }
+  @keyframes kwTrace { 0% { stroke-dashoffset: 1; } 45%, 70% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
+  @keyframes kwGlisse { 0% { transform: translateX(-100%); } 100% { transform: translateX(260%); } }
+  @keyframes kwLoaderFadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) {
+    .kw-loader-anneau, .kw-loader-barre span { animation: none !important; }
+    .kw-loader-trait { animation: none !important; stroke-dashoffset: 0 !important; }
+    .kw-page-loader { transition: none !important; }
+  }
+</style>
 </head>
 <body>
 <noscript>
@@ -64,6 +228,105 @@
     <p style="margin-top:16px"><a href="https://www.instagram.com/kwiyiahstyle">Instagram</a></p>
   </div>
 </noscript>
+
+<!-- KWIYIAH STYLE – ÉCRAN DE CHARGEMENT HAUTE COUTURE -->
+<div id="kw-page-loader" class="kw-page-loader" role="status" aria-live="polite" aria-label="Chargement de Kwiyiah Style">
+  <div class="kw-loader-container">
+    <div class="kw-loader-rang">
+      <figure class="kw-loader-figure">
+        <img src="assets/loader-model.webp" alt="Silhouette Signature Kwiyiah Style" class="kw-loader-model" width="340" height="480">
+      </figure>
+    </div>
+    <div class="kw-loader-chargeur">
+      <div class="kw-loader-logo">
+        <svg viewBox="0 0 460 460" class="kw-loader-anneau" aria-hidden="true">
+          <defs>
+            <linearGradient id="kwLoaderGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#b08d4f"/>
+              <stop offset="50%" stop-color="#f3d79b"/>
+              <stop offset="100%" stop-color="#9a6f2e"/>
+            </linearGradient>
+          </defs>
+          <circle cx="230" cy="230" r="224" fill="none" stroke="rgba(176,141,79,0.18)" stroke-width="6"/>
+          <circle cx="230" cy="230" r="224" fill="none" stroke="url(#kwLoaderGoldGrad)" stroke-width="8" stroke-linecap="round" pathLength="100" stroke-dasharray="24 76"/>
+        </svg>
+        <svg viewBox="0 0 460 460" class="kw-loader-monogramme" aria-hidden="true">
+          <defs>
+            <clipPath id="kwLoaderRond"><circle cx="230" cy="230" r="200"/></clipPath>
+          </defs>
+          <circle cx="230" cy="230" r="200" fill="#14110d" stroke="rgba(176,141,79,0.35)" stroke-width="3"/>
+          <g clip-path="url(#kwLoaderRond)" fill="none" stroke="#f5f2ec" stroke-width="20" stroke-linejoin="miter" stroke-linecap="square">
+            <path class="kw-loader-trait" pathLength="1" d="M128 60 L128 318 L192 254"/>
+            <path class="kw-loader-trait" pathLength="1" d="M268 120 L158 228 L322 400"/>
+            <path class="kw-loader-trait" pathLength="1" d="M204 240 L226 220 L330 324 L330 60"/>
+          </g>
+        </svg>
+      </div>
+      <div class="kw-loader-brand">
+        <h2 class="kw-loader-marque">Kwiyiah <span>Style</span></h2>
+        <p class="kw-loader-sub">Maison de Couture · Abidjan — Paris</p>
+      </div>
+      <div class="kw-loader-barre"><span></span></div>
+      <p class="kw-loader-etat" id="kw-loader-status-text">Chargement de la collection</p>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var loader = document.getElementById('kw-page-loader');
+  var statusEl = document.getElementById('kw-loader-status-text');
+  if (!loader) return;
+  var start = Date.now();
+  var minDuration = 1200;
+  function hideInitial() {
+    var elapsed = Date.now() - start;
+    var wait = Math.max(0, minDuration - elapsed);
+    setTimeout(function() {
+      loader.classList.add('kw-loader-hidden');
+      setTimeout(function() {
+        if (loader.classList.contains('kw-loader-hidden')) {
+          loader.classList.add('kw-loader-gone');
+        }
+      }, 500);
+    }, wait);
+  }
+  if (document.readyState === 'complete') hideInitial();
+  else window.addEventListener('load', hideInitial);
+  setTimeout(hideInitial, 3200);
+
+  window.kwShowPageLoader = function(screenName, callback) {
+    if (!loader) { if (callback) callback(); return; }
+    var label = "Chargement de la collection";
+    if (screenName === 'accueil') label = "Retour à l'accueil";
+    else if (screenName === 'boutique') label = "Chargement de la collection";
+    else if (screenName === 'maison') label = "Découverte de la Maison";
+    else if (screenName === 'contact') label = "Connexion avec l'atelier";
+    else if (screenName === 'checkout') label = "Préparation de la commande";
+    else if (screenName === 'produit') label = "Ouverture de la pièce";
+    if (statusEl) statusEl.textContent = label;
+
+    loader.classList.remove('kw-loader-gone');
+    void loader.offsetWidth;
+    loader.classList.remove('kw-loader-hidden');
+    loader.classList.add('kw-loader-transitioning');
+
+    setTimeout(function() {
+      if (typeof callback === 'function') {
+        try { callback(); } catch(e) { console.error(e); }
+      }
+      setTimeout(function() {
+        loader.classList.remove('kw-loader-transitioning');
+        loader.classList.add('kw-loader-hidden');
+        setTimeout(function() {
+          if (loader.classList.contains('kw-loader-hidden')) {
+            loader.classList.add('kw-loader-gone');
+          }
+        }, 400);
+      }, 160);
+    }, 180);
+  };
+})();
+</script>
 <x-dc>
 <helmet>
 <meta name="description" content="Maison de couture d'exception. Découvrez la collection Abidjan-Paris de Kwiyiah Style : robes de gala, ensembles et combinaisons sur-mesure faits main.">
@@ -1486,6 +1749,7 @@ class Component extends DCLogic {
     this._onHashChange=()=>{ const r=this.parseHash(); this.applyRoute(r.screen,r.id); };
     window.addEventListener('hashchange', this._onHashChange);
     this.updateTitle(this.state.screen, this.state.productId);
+    this._isMounted = true;
   }
   componentWillUnmount(){
     if(this._onKeydown){ document.removeEventListener('keydown', this._onKeydown); this._onKeydown=null; }
@@ -1556,10 +1820,17 @@ class Component extends DCLogic {
     else this.applyRoute(screen,id);
   }
   applyRoute(screen,id){
-    const s={screen,cartOpen:false,menuOpen:false};
-    if(id){ s.productId=id; s.activeIdx=0; s.qty=1; s.sel={}; }
-    try{window.scrollTo(0,0);}catch(e){}
-    this.setState(s, () => this.updateTitle(screen,id));
+    const applyState = () => {
+      const s={screen,cartOpen:false,menuOpen:false};
+      if(id){ s.productId=id; s.activeIdx=0; s.qty=1; s.sel={}; }
+      try{window.scrollTo(0,0);}catch(e){}
+      this.setState(s, () => this.updateTitle(screen,id));
+    };
+    if (this._isMounted && typeof window.kwShowPageLoader === 'function') {
+      window.kwShowPageLoader(screen, applyState);
+    } else {
+      applyState();
+    }
   }
   toggleTheme(){
     this.setState(s=>{
